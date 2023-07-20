@@ -1,0 +1,40 @@
+﻿@model TodoList
+
+<h1>Todo: @Model.Title</h1>
+<a asp-action="Create" asp-controller="Task" asp-route-id="@Model.Id">Dodaj zadatak u TODO listu</a>
+
+@if (Model.Tasks == null)
+{
+    <h2>Niste kreirali ni jedan zadatak!</h2>
+    
+} else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Completed</th>
+                <th>Details</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Tasks)
+            {
+                @if (item.IsCompleted == false)
+                {
+                    <tr>
+                        <td>@item.Name</td>
+                        <td>
+                            <input type="checkbox" asp-for="@item.IsCompleted" disabled>
+                        </td>
+                        <td>
+                            <a asp-action="Detail" asp-route-id="@item.Id" asp-controller="Task">Detalji</a>
+                        </td>
+                    </tr>
+                }
+               
+            }
+        </tbody>
+    </table>
+}
+

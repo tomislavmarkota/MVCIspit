@@ -1,0 +1,17 @@
+﻿@model Tasks
+@{
+    int todoId = (int)ViewData["TodoId"];
+}
+
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label asp-for="Name" class="control-label">Title</label>
+        <input type="text" asp-for="Name" class="form-control" />
+        <input type="hidden" name="TodoId" value="@todoId" />
+    </div>
+ 
+
+    <div class="form-group">
+        <input type="submit" value="Create" class="btn btn-primary" />
+    </div>
+</form>

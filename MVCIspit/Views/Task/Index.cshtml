@@ -1,0 +1,34 @@
+﻿@model List<Tasks>
+
+<h1>Tasks</h1>
+
+<a class="btn btn-primary" asp-action="Create">Dodaj zadatak</a>
+@if(Model == null)
+{
+    <h2>Nema nijednog zadatka !</h2>
+} else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Zadatak</th>
+                <th>Dovršen</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Name</td>
+                    <td>
+                        @item.IsCompleted
+                    </td>
+                    <td>
+                        <a asp-action="Index" asp-controller="Task">Dodaj zadatak</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+}

@@ -1,0 +1,18 @@
+﻿@model Tasks
+
+
+<form asp-action="Update" method="post">
+    <div class="form-group">
+        <label asp-for="Name" class="control-label">Title</label>
+        <input type="text" asp-for="Name" class="form-control" />
+    </div>
+     <div class="form-group">
+        <label asp-for="IsCompleted" class="control-label">Označi kao odrađeno</label>
+        <input type="checkbox" asp-for="IsCompleted" />
+    </div>
+    <input type="hidden" asp-for="Id" />
+    <input type="hidden" asp-for="TodoId" />
+    <div class="form-group">
+        <input type="submit" value="Potvrdi" class="btn btn-primary" />
+    </div
+</form>

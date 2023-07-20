@@ -1,0 +1,26 @@
+﻿@model List<TodoList>
+
+<h1>Korisnički profil</h1>
+
+<a class="btn btn-primary" asp-controller="Todo" asp-action="Create" >Kreiraj Todo listu</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Naslov</th>
+            <th>Detalji</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model)
+        {
+            <tr>
+                <td>@item.Title</td>
+                <td>
+                    <a asp-action="Detail" asp-route-id="@item.Id" asp-controller="Todo">Pogledaj</a>
+                    
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
